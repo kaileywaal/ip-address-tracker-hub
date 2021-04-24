@@ -20,19 +20,40 @@ body {
   text-align: center;
 }
 
+h1,
+h2,
+h3 {
+  padding: 0.25rem;
+}
+
 h1 {
   color: white;
   font-weight: 500;
   font-size: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 h2 {
-  color: var(--color-darker);
+  color: var(--color-lighter);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 h3 {
-  color: var(--color-lighter);
+  color: var(--color-darker);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
 }
 
 /* Search Bar */
@@ -81,3 +102,37 @@ h3 {
 }
 
 /* IP Details */
+.ip-details {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 1.5rem auto;
+  width: 90%;
+  max-width: 500px;
+  border-radius: var(--border-radius);
+}
+
+.ip-details__section {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .ip-details {
+    margin-top: 2rem;
+    flex-direction: row;
+    max-width: 1024px;
+    justify-content: space-between;
+  }
+
+  .ip-details__section {
+    padding: 0 2rem;
+    margin: 2rem 0;
+    text-align: left;
+    flex: 1;
+    border-right: 1px solid hsla(0, 0%, 59%, 0.5);
+  }
+
+  .ip-details__section:last-of-type {
+    border-right: none;
+  }
+}
