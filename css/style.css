@@ -1,6 +1,7 @@
 :root {
-  --color-dark: hsl(0, 0%, 17%);
+  --color-darker: hsl(0, 0%, 17%);
   --color-lighter: hsl(0, 0%, 59%);
+  --border-radius: 10px;
 }
 
 *,
@@ -14,4 +15,69 @@
 body {
   font-size: 62.5%;
   font-family: Rubik, sans-serif;
+  background-image: url(../images/pattern-bg.png);
+  background-repeat: no-repeat;
+  text-align: center;
 }
+
+h1 {
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+h2 {
+  color: var(--color-darker);
+}
+
+h3 {
+  color: var(--color-lighter);
+}
+
+/* Search Bar */
+.search-form {
+  background-color: white;
+  display: inline-flex;
+  width: 90%;
+  max-width: 500px;
+  height: 3rem;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+}
+
+.search-form__input {
+  border: none;
+  outline: none;
+  margin: 1rem 1.5rem;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.search-form__input::placeholder {
+  color: var(--color-lighter);
+}
+
+.search-form__submit {
+  background-color: var(--color-darker);
+  border: none;
+  width: 3rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  transition: 0.2s;
+}
+
+.search-form__submit:focus {
+  outline: none;
+}
+
+.search-form__submit:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.search-form__submit img {
+  height: 0.75rem;
+}
+
+/* IP Details */
