@@ -83,12 +83,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // icon settings for map marker
 const mapIcon = L.icon({
     iconUrl: '../images/icon-location.svg',
-    // iconSize: [38, 95],
-    // iconAnchor: [22, 94],
-    // popupAnchor: [-3, -76],
-    // shadowUrl: 'my-icon-shadow.png',
-    // shadowSize: [68, 95],
-    // shadowAnchor: [22, 94]
 });
 
 //move map based on IP address data
