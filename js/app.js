@@ -68,7 +68,7 @@ function displayData(data) {
 ///////////////////////////////////////////
 
 //create map in #map div
-const map = L.map('map');
+const map = L.map('map', {zoomControl: false});
 map.setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
