@@ -15,6 +15,7 @@ function getInputContent(e) {
         e.preventDefault();
         const inputType = ipAddressOrDomain(input.value);
         getIpData(input.value, inputType);
+        input.value = '';
     }
 }
 
@@ -29,12 +30,27 @@ function ipAddressOrDomain(input) {
 //fetch IP data from API
 function getIpData(input, inputType) {
     const apiKey = 'at_0NZU95erjF2tuCfpk63RCqKRPVI1O';
-    // const ipAddressOrDomain = ipAddressOrDomain(input);
     const url = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&${inputType}=${input}`;
     fetch(url)
-        .then(result => result.json())
-        .then(data => console.log(data));
+        .then(resp => resp.json())
+        .then(data => displayData(data));
 }
 
 //TODO: add error message if not valid ip address or domain
+//TODO: add message while page is waiting for data
 
+///////////////////////////////////////////
+/////////DISPLAY IP ADDRESS DATA///////////
+///////////////////////////////////////////
+
+function displayData(data) {
+    const ip = data.ip;
+    const location = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
+    const timezone = `UTC ${data.location.timezone}`
+    const isp = data.isp;
+
+    document.querySelector('.ip').innerHTML = ip;
+    document.querySelector('.location').innerHTML = location;
+    document.querySelector('.timezone').innerHTML = timezone;
+    document.querySelector('.isp').innerHTML = isp;
+}
