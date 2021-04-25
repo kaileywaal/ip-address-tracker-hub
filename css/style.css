@@ -136,3 +136,16 @@ h3 {
     border-right: none;
   }
 }
+
+/* Map */
+.info {
+  position: relative;
+}
+
+#map {
+  top: 100px;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}

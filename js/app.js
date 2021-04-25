@@ -47,6 +47,7 @@ function getIpData(input, inputType) {
 ///////////////////////////////////////////
 
 function displayData(data) {
+    console.log(data);
     const ip = data.ip;
     const location = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
     const timezone = `UTC ${data.location.timezone}`
@@ -57,3 +58,5 @@ function displayData(data) {
     document.querySelector('.timezone').innerHTML = timezone;
     document.querySelector('.isp').innerHTML = isp;
 }
+
+
