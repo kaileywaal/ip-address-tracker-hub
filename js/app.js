@@ -36,7 +36,11 @@ function getIpData(input, inputType) {
     const url = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&${inputType}=${input}`;
     fetch(url)
         .then(resp => resp.json())
-        .then(data => displayData(data));
+        .then(data => {
+            displayData(data);
+            moveMap(data.location.lat, data.location.lng);
+            addMarker(data.location.lat, data.location.lng);
+        });
 }
 
 //TODO: add error message if not valid ip address or domain
@@ -63,7 +67,9 @@ function displayData(data) {
 ///////////////////MAP/////////////////////
 ///////////////////////////////////////////
 
-var mymap = L.map('map').setView([51.505, -0.09], 13);
+//create map in #map div
+const map = L.map('map');
+map.setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -72,4 +78,25 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiMTVrd2FhbCIsImEiOiJja254a210MXcwbDhjMnFwcGNuMDk0OHRiIn0.eex65TN__8i9W1iltZ9txw'
-}).addTo(mymap);
+}).addTo(map);
+
+// icon settings for map marker
+const mapIcon = L.icon({
+    iconUrl: '../images/icon-location.svg',
+    // iconSize: [38, 95],
+    // iconAnchor: [22, 94],
+    // popupAnchor: [-3, -76],
+    // shadowUrl: 'my-icon-shadow.png',
+    // shadowSize: [68, 95],
+    // shadowAnchor: [22, 94]
+});
+
+//move map based on IP address data
+function moveMap(lat, long){
+    map.setView([lat, long], 13);
+}
+
+//add marker to map
+function addMarker(lat, long){
+    L.marker([lat, long], {icon: mapIcon}).addTo(map);
+}

@@ -146,7 +146,7 @@ h3 {
 #map {
   top: 100px;
   z-index: -1;
-  height: 65vh;
+  height: 70vh;
   width: 100vw;
   position: absolute;
 }
