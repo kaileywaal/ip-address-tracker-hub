@@ -110,6 +110,7 @@ h3 {
   width: 90%;
   max-width: 500px;
   border-radius: var(--border-radius);
+  padding-bottom: 1rem;
 }
 
 .ip-details__section {
@@ -145,7 +146,7 @@ h3 {
 #map {
   top: 100px;
   z-index: -1;
-  height: 100vh;
+  height: 65vh;
   width: 100vw;
   position: absolute;
 }
